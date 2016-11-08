@@ -1,7 +1,7 @@
 {
-  "name": "hockeyscores",
+  "name": "asfalttihuolto",
   "version": "1.0.0",
-  "description": "OKK Tankki Finhockey data.",
+  "description": "Order form page for a tarmac company",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
