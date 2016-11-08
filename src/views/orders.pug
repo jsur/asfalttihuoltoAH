@@ -1,0 +1,23 @@
+include includes/header.pug
+link(rel='stylesheet' href='/styles/summary.css' type='text/css')
+h1 TILAUKSET
+body(id='bootstrap-override')
+	div(class='container-fluid')
+		form(class='form-inline')
+			div(class='form-group')
+				input(class='form-control' type='text' placeholder='Syöttökenttä 1')
+			div(class='form-group')
+				input(class='form-control' type='text' placeholder='Syöttökenttä 2')
+			div(class='form-group')
+				input(class='form-control' type='text' placeholder='Syöttökenttä 3')
+			div(class='form-group')
+				input(class='form-control' type='text' placeholder='Syöttökenttä 4')
+			div(class='form-group')
+				input(class='form-control' type='text' placeholder='Syöttökenttä 5')
+			div(class='form-group')
+				input(class='form-control' type='date' placeholder='Pvm')
+		div(class="text-center")
+			button(class="btn btn-success") Tilaa
+		include includes/footer.pug
+		script(src='js/main.js')
+		script(src='js/orders.js')

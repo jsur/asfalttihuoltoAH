@@ -1,7 +1,7 @@
 /*Bootstrap overrides*/
 
 #bootstrap-override {
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 /*Element styles*/
@@ -12,83 +12,36 @@ h1 {
 
 /*Class styles*/
 
-
-.page-wrap {
-  min-height: 70%;
-  /* equal to footer height */
-  margin-bottom: -30px;
+.container-fluid {
+	padding-top: 20px;
 }
 
-.page-wrap:after {
-  content: "";
-  display: block;
-}
 
-.footer, .page-wrap:after {
-  height: 30px; 
-}
-
-.footer {
-  background: white;
-}
-
-.header-menu {
-  display: none;
-}
-
-.okklogo {
-  width: 130px;
-  height: 80px;
-}
-
-#filter {
-  margin-bottom: 10px;
+.footer-text {
+  color: white;
+  
 }
 
 /*Media queries*/
 
 @media (max-width: 768px) {
-  
-  .container-fluid {
-    padding: 0px !important;
-  }
 
 }
 
 @media only screen and (max-width : 480px) {
-  .container-fluid td {
-    font-size: 0.85em;
-  }
-  .container-fluid th {
-    font-size: 0.95em;
-  }
+
 }
 
 @media only screen and (max-width : 390px) {
-  .container-fluid td {
-    font-size: 0.79em;
-  }
-  .container-fluid th {
-    font-size: 0.82em;
-  }
+
 }
 
 /*LG G4*/
 @media only screen and (max-width : 360px) {
-  .container-fluid td {
-    font-size: 0.74em;
-  }
-  .container-fluid th {
-    font-size: 0.80em;
-  }
+
 }
 
 /*iPhone 5 and down*/
 @media only screen and (max-width : 320px) {
-  .container-fluid td {
-    font-size: 0.65em;
-  }
-  .container-fluid th {
-    font-size: 0.73em;
-  }
+
 }
