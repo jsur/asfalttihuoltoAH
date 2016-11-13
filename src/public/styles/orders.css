@@ -1,0 +1,34 @@
+/*Bootstrap overrides*/
+
+#bootstrap-override {
+	
+}
+
+/*Element styles*/
+
+body {
+	padding-bottom: 4em;
+}
+
+/*Id styles*/
+
+/*Class styles*/
+
+.bootstrap-switch-container {
+	max-height: 34px;
+}
+
+.stoneworkdescription-container {
+	display: none;
+}
+
+/*Media queries*/
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 450px) {
+
+}
+

@@ -2,6 +2,11 @@ $(function() {
 
 /*Events*/
 
+$("[name='stoneworkcheck']").bootstrapSwitch();
+
+$(".bootstrap-switch, .bootstrap-switch-handle-off, .bootstrap-switch-handle-on").click(function() {
+	$(".stoneworkdescription-container").slideToggle(300);
+});
 
 
 /*AJAX calls*/

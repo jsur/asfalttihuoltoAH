@@ -1,23 +1,36 @@
 include includes/header.pug
-link(rel='stylesheet' href='/styles/summary.css' type='text/css')
+link(rel='stylesheet' href='/styles/orders.css' type='text/css')
+link(rel='stylesheet' href='/styles/bootstrap-switch.min.css' type='text/css')
 h1 TILAUKSET
 body(id='bootstrap-override')
 	div(class='container-fluid')
-		form(class='form-inline')
+		form
 			div(class='form-group')
-				input(class='form-control' type='text' placeholder='Syöttökenttä 1')
+				label(for='address') Osoite
+				input(class='form-control' type='text' id='address')
 			div(class='form-group')
-				input(class='form-control' type='text' placeholder='Syöttökenttä 2')
+				label(for='orderdate') Tilauspvm
+				input(class='form-control' type='date' id='orderdate')
 			div(class='form-group')
-				input(class='form-control' type='text' placeholder='Syöttökenttä 3')
+				label(for='sitesize') Työmaan koko
+				input(class='form-control' type='text' id='sitesize' placeholder='m2')
+			div(class='form-check')
+				label(class='form-check-label') Kivitöitä 
+					input(class='form-check-input' type='checkbox' value='' name='stoneworkcheck' data-on-text='Kyllä' data-off-text='Ei' data-on-color='success' data-off-color='danger')
+			div(class='form-group stoneworkdescription-container')
+				label(for='stoneworkdescription') Kivityön kuvaus
+				textarea(class='form-control' id='stoneworkdescription' rows='3')
 			div(class='form-group')
-				input(class='form-control' type='text' placeholder='Syöttökenttä 4')
+				label(for='workinghours') Työaika
+				input(class='form-control' type='text' id='workinghours' placeholder='Esim. 8-16')
 			div(class='form-group')
-				input(class='form-control' type='text' placeholder='Syöttökenttä 5')
+				label(for='completiongoal') Valmistumistavoite
+				input(class='form-control' type='text' id='completiongoal')
 			div(class='form-group')
-				input(class='form-control' type='date' placeholder='Pvm')
-		div(class="text-center")
-			button(class="btn btn-success") Tilaa
-		include includes/footer.pug
-		script(src='js/main.js')
-		script(src='js/orders.js')
+				label(for='completiondate') Valmistumispvm
+				input(class='form-control' type='date' id='completiondate')
+		div(class="text-center order-form")
+			button(class="btn btn-info") Tilaa
+include includes/footer.pug
+script(src='js/orders.js')
+script(src='js/bootstrap-switch.min.js')
