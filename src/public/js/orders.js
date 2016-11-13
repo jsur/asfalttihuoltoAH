@@ -8,6 +8,10 @@ $(".bootstrap-switch, .bootstrap-switch-handle-off, .bootstrap-switch-handle-on"
 	$(".stoneworkdescription-container").slideToggle(300);
 });
 
+$(".bootstrap-switch, .bootstrap-switch-handle-off, .bootstrap-switch-handle-on").on("swipe", (function() {
+	$(".stoneworkdescription-container").slideToggle(300);
+}));
+
 
 /*AJAX calls*/
 
