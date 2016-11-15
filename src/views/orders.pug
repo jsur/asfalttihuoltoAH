@@ -6,6 +6,19 @@ body(id='bootstrap-override')
 	div(class='container-fluid')
 		form
 			div(class='form-group')
+				label(for='clientname') Tilaaja
+				select(class='form-control' type='text' id='clientname')
+					option(disabled selected value) Valitse tilaaja..
+					option Leppänen
+					option Suurkari
+					option Kiiskinen
+					option Mäkilä
+					option Huoman
+					option(id="newclientname") Lisää uusi tilaaja..
+			div(class='form-group' id="newclient")
+				label(for='newclientinput') Uusi tilaaja
+				input(class='form-control' type='text' id='newclientinput')
+			div(class='form-group')
 				label(for='address') Osoite
 				input(class='form-control' type='text' id='address')
 			div(class='form-group')

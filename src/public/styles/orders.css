@@ -12,6 +12,10 @@ body {
 
 /*Id styles*/
 
+#newclient {
+	display: none;
+}
+
 /*Class styles*/
 
 .bootstrap-switch-container {

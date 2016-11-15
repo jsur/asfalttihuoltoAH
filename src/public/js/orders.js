@@ -8,6 +8,17 @@ $(".bootstrap-switch, .bootstrap-switch-handle-off, .bootstrap-switch-handle-on"
 	$(".stoneworkdescription-container").slideToggle(300);
 });
 
+$("#clientname").change(function() {
+	var id = ($(this).children(":selected").attr("id"));
+	if(id == "newclientname") {
+		$("#newclient").slideToggle(300);
+	}
+	else {
+		$("#newclientinput").val("");
+		$("#newclient").css('display', 'none');
+	}
+});
+
 /*AJAX calls*/
 
 postOrder = 
