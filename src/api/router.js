@@ -11,7 +11,7 @@ const errormessage = "<h1>Server error occurred. Please come again.</h1>"
 
 router.get('/', function(req, res) { 
     Kaljasakko.collection.find().toArray(function(err, items) {
-        res.render('summary', { items: items }); 
+        res.render('ongoingjobs', { items: items }); 
         })
     });
 

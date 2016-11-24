@@ -5,7 +5,8 @@
 }
 
 #bootstrap-override .navbar {
-	max-height: 40px;
+	min-height: 30px;
+	margin-bottom: 0;
 }
 
 #bootstrap-override h1 {

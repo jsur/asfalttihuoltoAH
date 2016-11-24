@@ -38,15 +38,16 @@
 .overlay #closebtn {
     position: absolute;
     top: 20px;
-    right: 45px;
+    right: 0px;
     font-size: 60px;
 }
 
 #openbtn {
     float: right;
-    font-size: 3em;
+    font-size: 2em;
     padding-right: 0.25em;
     cursor: pointer;
+    color: white;
 }
 
 @media screen and (max-height: 450px) {

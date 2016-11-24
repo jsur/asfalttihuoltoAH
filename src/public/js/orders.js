@@ -20,7 +20,7 @@ $("#clientname").change(function() {
 });
 
 /*AJAX calls*/
-
+/*
 postOrder = 
 
 	function postOrder(url, i) { $.ajax({
@@ -39,5 +39,5 @@ postOrder =
 			console.log(data);
 			}
 		})
-	}
+	}*/
 });
