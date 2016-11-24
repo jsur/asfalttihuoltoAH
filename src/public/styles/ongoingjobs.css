@@ -8,18 +8,10 @@
 
 /*Id styles*/
 
-#newclient {
-	display: none;
-}
-
 /*Class styles*/
 
-.bootstrap-switch-container {
-	max-height: 34px;
-}
-
-.stoneworkdescription-container {
-	display: none;
+.glyphicon {
+	margin-left: 5px;
 }
 
 /*Media queries*/

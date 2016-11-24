@@ -2,10 +2,29 @@ include includes/header.pug
 nav(class='navbar navbar-inverse navbar-fixed-top text-center')
 	a(class="navbar-brand") Avoimet työt
 	span(id="openbtn") &#9776;
-//link(rel="stylesheet" href="/styles/ongoingjobs.css" type="text/css")
+link(rel="stylesheet" href="/styles/ongoingjobs.css" type="text/css")
 body(id='bootstrap-override')
 	div(class='container-fluid')
-		div(class='form-inline text-center page-wrap')
-			div(class='form-group text-center')
-		include includes/footer.pug
-		script(src="js/main.js")
+		div(class="ongoingjoblist")
+			div(class="ongoingjob")
+				table(class="table table-responsive")
+					thead
+						tr
+							th Tilaaja
+							th Osoite
+							th Tilauspvm
+					tbody
+						tr
+							td Suurkari
+							td Vihertie 1
+							td 11.11.2016
+				div(class="btn-group")
+					button(class="btn btn-default job-start") Aloita työ
+						span(class="glyphicon glyphicon-play")
+					button(class="btn btn-default job-ready" disabled) Merkitse valmiiksi
+						span(class="glyphicon glyphicon-flag")
+					button(class="btn btn-default job-billed" disabled) Laskuta työ
+						span(class="glyphicon glyphicon-eur")
+	include includes/footer.pug
+	script(src="js/main.js")
+	script(src="js/ongoingjobs.js")
