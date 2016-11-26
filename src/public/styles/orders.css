@@ -30,6 +30,12 @@
 	display: none;
 }
 
+.orderbutton {
+	padding: 10px 25px 10px 25px;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
 /*Media queries*/
 
 @media (max-width: 768px) {
