@@ -6,11 +6,12 @@ link(rel='stylesheet' href='/styles/orders.css' type='text/css')
 link(rel='stylesheet' href='/styles/bootstrap-switch.min.css' type='text/css')
 body(id='bootstrap-override')
 	div(class='container-fluid')
-		form
+		form(class="orderform")
+			div(class="alert alert-danger mandatoryfields") Täytä punaisella merkityt pakolliset kentät.
 			div(class='form-group')
-				label(for='clientname') Tilaaja
-				select(class='form-control' type='text' id='clientname')
-					option(disabled selected value) Valitse tilaaja..
+				label(class="control-label" for='clientname') Tilaaja
+				select(class='form-control' type='text' id='clientname' required)
+					option(disabled selected value id="placeholder") Valitse tilaaja..
 					option Leppänen
 					option Suurkari
 					option Kiiskinen
@@ -21,31 +22,31 @@ body(id='bootstrap-override')
 				label(for='newclientinput') Uusi tilaaja
 				input(class='form-control' type='text' id='newclientinput')
 			div(class='form-group')
-				label(for='address') Osoite
-				input(class='form-control' type='text' id='address')
+				label(class="control-label" for='address') Osoite
+				input(class='form-control' type='text' id='address' required)
 			div(class='form-group')
-				label(for='orderdate') Tilauspvm
-				input(class='form-control' type='date' id='orderdate')
+				label(class="control-label" for='orderdate') Tilauspvm
+				input(class='form-control' type='date' id='orderdate' required)
 			div(class='form-group')
-				label(for='sitesize') Työmaan koko
-				input(class='form-control' type='tel' id='sitesize' placeholder='m2')
+				label(class="control-label" for='sitesize') Työmaan koko
+				input(class='form-control' type='tel' id='sitesize' placeholder='m2' required)
 			div(class='form-check')
 				label(class='form-check-label') Kivitöitä 
 					input(class='form-check-input' type='checkbox' value='' name='stoneworkcheck' data-on-text='Kyllä' data-off-text='Ei' data-on-color='success' data-off-color='danger')
 			div(class='form-group stoneworkdescription-container')
-				label(for='stoneworkdescription') Kivityön kuvaus
+				label(class="control-label" for='stoneworkdescription') Kivityön kuvaus
 				textarea(class='form-control' id='stoneworkdescription' rows='3')
 			div(class='form-group')
-				label(for='streetcategories') Katuluokat
-				input(class='form-control' type='text' id='streetcategories' placeholder='Esim. ar KL3, jk kl6')
+				label(class="control-label" for='streetcategories') Katuluokat
+				input(class='form-control' type='text' id='streetcategories' placeholder='Esim. ar KL3, jk kl6' required)
 			div(class='form-group')
-				label(for='completiongoal') Valmistumistavoite
-				input(class='form-control' type='text' id='completiongoal')
+				label(class="control-label" for='completiongoal') Valmistumistavoite
+				input(class='form-control' type='text' id='completiongoal' required)
 			div(class='form-group')
-				label(for='completiondate') Valmistumispvm
-				input(class='form-control' type='date' id='completiondate')
-		div(class="text-center order-form")
-			button(class="btn btn-info") Tilaa
+				label(class="control-label" for='completiondate') Valmistumispvm
+				input(class='form-control' type='date' id='completiondate' required)
+		div(class="text-center order-button-div")
+			button(class="btn btn-info orderbutton") TILAA
 include includes/footer.pug
 script(src='js/orders.js')
 script(src='js/bootstrap-switch.min.js')
