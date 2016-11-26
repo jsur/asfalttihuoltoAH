@@ -22,7 +22,7 @@ $(function() {
 		if($(".job-ready").hasClass("btn-success")) {
 			$(".job-ready").
 				removeClass("btn-success").
-				html("Merkitse valmiiksi").
+				html("Aseta valmiiksi").
 				append("<span class='glyphicon glyphicon-flag'></span>");
 			$(".job-billed").attr('disabled', 'true');
 		} else {

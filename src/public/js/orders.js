@@ -51,10 +51,9 @@ $(".orderbutton").click(function() {
 		page.animate({ scrollTop: 0 }, "fast");
 	} else {
 		$(".mandatoryfields").css("display", "none");
-		page.animate({ scrollTop: 0 }, "fast");
-		$(".postsuccess").css("display", "block");
-		//POST request here
-	}
+		$(".modal").css("display", "block");
+		}
+	});
 });
 
 
@@ -79,4 +78,3 @@ postOrder =
 			}
 		})
 	}*/
-});

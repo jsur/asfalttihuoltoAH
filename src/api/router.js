@@ -23,6 +23,7 @@ router.get('/tilaukset', function(req, res) {
 
 //POST
 
+/*
 router.post('/', function(req, res) {
     var kaljasakko = req.body;
     Kaljasakko.create(kaljasakko, function(err, kaljasakko) {
@@ -33,6 +34,6 @@ router.post('/', function(req, res) {
         res.send(kaljasakko._id);
         })
     });
-
+*/
 
 module.exports = router;

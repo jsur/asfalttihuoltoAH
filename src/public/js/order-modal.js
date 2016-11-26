@@ -1,18 +1,13 @@
 /*http://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_bottom*/
 
 // Get the modal
-var modal = document.getElementById('billed-modal-id');
+var modal = document.getElementById('order-modal-id');
 
 // Get the button that opens the modal
-var btn = document.getElementById("job-billed-id");
+var btn = document.getElementById("order-button-id");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -30,14 +25,17 @@ window.onclick = function(event) {
 
 $(function() {
 
-	var billedbutton = $(".confirm");
+	var orderbutton = $(".confirm");
 
-	billedbutton.click(function () {
-		billedbutton.after("<span>Ja nyt päivittyy tiedot tietokantaan.</span>")
+	orderbutton.click(function () {
+		modal.style.display = "none";
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+		$(".postsuccess").css("display", "block");
+		//POST request here, display postsuccess on successful POST
 	});
 
 	$(".go-back").click(function() {
-		modal.style.display = "none";	
+		modal.style.display = "none";
 	});
 	
 });

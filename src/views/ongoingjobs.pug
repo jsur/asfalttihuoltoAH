@@ -3,7 +3,7 @@ nav(class='navbar navbar-inverse navbar-fixed-top text-center')
 	a(class="navbar-brand") Avoimet työt
 	span(id="openbtn") &#9776;
 link(rel="stylesheet" href="/styles/ongoingjobs.css" type="text/css")
-link(rel="stylesheet" href="/styles/billed-modal.css" type="text/css")
+link(rel="stylesheet" href="/styles/confirmation-modal.css" type="text/css")
 body(id='bootstrap-override')
 	div(class='container-fluid')
 		div(class="ongoingjoblist")
@@ -28,6 +28,5 @@ body(id='bootstrap-override')
 						span(class="glyphicon glyphicon-eur")
 	include includes/billed-modal.pug
 	include includes/footer.pug
-	script(src="js/main.js")
 	script(src="js/ongoingjobs.js")
 	script(src="js/billed-modal.js")

@@ -4,6 +4,7 @@ nav(class='navbar navbar-inverse navbar-fixed-top text-center')
 	span(id="openbtn") &#9776;
 link(rel='stylesheet' href='/styles/orders.css' type='text/css')
 link(rel='stylesheet' href='/styles/bootstrap-switch.min.css' type='text/css')
+link(rel="stylesheet" href="/styles/confirmation-modal.css" type="text/css")
 body(id='bootstrap-override')
 	div(class='container-fluid')
 		form(class="orderform")
@@ -47,7 +48,9 @@ body(id='bootstrap-override')
 				label(class="control-label" for='completiondate') Valmistumispvm
 				input(class='form-control' type='date' id='completiondate' required)
 		div(class="text-center order-button-div")
-			button(class="btn btn-info orderbutton") TILAA
+			button(class="btn btn-info orderbutton" id="order-button-id") TILAA
+include includes/order-confirm-modal.pug
 include includes/footer.pug
 script(src='js/orders.js')
 script(src='js/bootstrap-switch.min.js')
+script(src='js/order-modal.js')
