@@ -44,15 +44,17 @@ $(".orderbutton").click(function() {
 		} else {
 			a.parent().removeClass("has-error");
 		}
+	});
+
 	if($(".orderform .form-group").hasClass("has-error")) {
 		$(".mandatoryfields").css("display", "block");
 		page.animate({ scrollTop: 0 }, "fast");
-		console.log("scrollasi");
 	} else {
 		$(".mandatoryfields").css("display", "none");
-		console.log("POST");
+		page.animate({ scrollTop: 0 }, "fast");
+		$(".postsuccess").css("display", "block");
+		//POST request here
 	}
-	})
 });
 
 

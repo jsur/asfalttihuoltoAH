@@ -26,6 +26,10 @@
 	display: none;
 }
 
+.postsuccess {
+	display: none;
+}
+
 /*Media queries*/
 
 @media (max-width: 768px) {
