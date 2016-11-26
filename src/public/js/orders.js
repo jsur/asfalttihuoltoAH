@@ -28,15 +28,25 @@ $("#clientname").change(function() {
 });
 
 $(".orderbutton").click(function() {
+
+	var page = $("html, body");
+
+	page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+       page.stop();
+   }); //Let the user scroll after error message
+
 	$(".orderform").find("input, textarea, select").each(function(){
-		if( $(this).prop('required') && ($(this).val() < 1) ){
-			$(this).parent().addClass("has-error");
+
+		var a = $(this);
+
+		if( a.prop('required') && (a.val() < 1) ){
+			a.parent().addClass("has-error");
 		} else {
-			$(this).parent().removeClass("has-error");
+			a.parent().removeClass("has-error");
 		}
 	if($(".orderform .form-group").hasClass("has-error")) {
 		$(".mandatoryfields").css("display", "block");
-		$("html, body").animate({ scrollTop: 0 }, "slow");
+		page.animate({ scrollTop: 0 }, "fast");
 		console.log("scrollasi");
 	} else {
 		$(".mandatoryfields").css("display", "none");
