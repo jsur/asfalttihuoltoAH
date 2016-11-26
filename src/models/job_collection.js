@@ -2,12 +2,12 @@
 
 var mongoose = require('mongoose');
 
-var kaljasakkoSchema = new mongoose.Schema({
+var jobSchema = new mongoose.Schema({
 	name: String,
 	amount: Number,
 	reason: String
 });
 
-var model = mongoose.model('kaljasakko', kaljasakkoSchema);
+var model = mongoose.model('job', jobSchema);
 
 module.exports = model;
