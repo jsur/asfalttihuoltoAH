@@ -1,12 +1,10 @@
 'use strict'
 
 const express = require('express');
-const router = require('./api/router.js');
+const router = require('./router.js');
 const parser = require('body-parser');
 
 const app = express();
-
-require('./database');
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
