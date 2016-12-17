@@ -63,6 +63,7 @@ postOrder =
 			console.log("Order complete.")
 			},
 		error: function(data, status) {
+			$("#post-order-button").after("<span class='errormsg'> Virhe tallennuksessa! Ota yhteys ylläpitoon.</span>")
 			console.log(data);
 			}
 		})

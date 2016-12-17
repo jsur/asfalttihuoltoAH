@@ -30,11 +30,11 @@ router.post('/', function(req, res) {
         streetcategory: req.body.streetcategory,
         completiongoal: req.body.completiongoal,
         completiondate: req.body.completiondate,
-        started: req.body.started,
-        startdate: req.body.startdate,
-        completed: req.body.completed,
-        actual_completion_date: req.body.actual_completion_date,
-        billed: req.body.billed
+        started: false,
+        startdate: null,
+        completed: false,
+        actual_completion_date: null,
+        billed: false
     }).then(function(job) {
         res.json(job);
     });

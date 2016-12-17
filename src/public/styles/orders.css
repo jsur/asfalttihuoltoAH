@@ -36,6 +36,10 @@
 	font-size: 1.3em;
 }
 
+.errormsg {
+	color: red;
+}
+
 /*Media queries*/
 
 @media (max-width: 768px) {
