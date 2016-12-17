@@ -2,6 +2,13 @@ $(function() {
 
 /*Events*/
 
+$("#sitesize").blur(function() {
+	var numeric = $("#sitesize").val();
+	if(!$.isNumeric(numeric)) {
+		$("#sitesize").val("");
+		}
+	});
+
 $("[name='stoneworkcheck']").bootstrapSwitch();
 
 $(".bootstrap-switch, .bootstrap-switch-handle-off, .bootstrap-switch-handle-on").click(function() {
