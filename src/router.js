@@ -3,32 +3,41 @@
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
-//const Job = require('../models/job_collection.js');
+const models = require('../server/models/index.js');
 const errormessage = "<h1>Server error occurred. Please come again.</h1>"
 
 //GET
 
 router.get('/', function(req, res) { 
-    //Job.collection.find().toArray(function(err, items) {        })
-        res.render('ongoingjobs'); 
+        res.render('orders'); 
 
     });
 
-router.get('/tilaukset', function(req, res) { 
-        res.render('orders');
+router.get('/avoimet', function(req, res) { 
+        res.render('ongoingjobs');
     });
 
 //POST
 
-router.post('/tilaukset', function(req, res) {
-    var job = req.body;
-    Job.create(job, function(err, job) {
-        if(err) {
-            return res.status(500).json({err: err.message});
-        }
-        console.log("Job created.");
-        res.send(job._id);
-        })
+router.post('/', function(req, res) {
+    models.Job.create({
+        clientname: req.body.clientname,
+        address: req.body.address,
+        orderdate: req.body.orderdate,
+        sitesize: req.body.sitesize,
+        stonework: req.body.stonework,
+        stoneworkdescription: req.body.stoneworkdescription,
+        streetcategory: req.body.streetcategory,
+        completiongoal: req.body.completiongoal,
+        completiondate: req.body.completiondate,
+        started: req.body.started,
+        startdate: req.body.startdate,
+        completed: req.body.completed,
+        actual_completion_date: req.body.actual_completion_date,
+        billed: req.body.billed
+    }).then(function(job) {
+        res.json(job);
     });
+});
 
 module.exports = router;

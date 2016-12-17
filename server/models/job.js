@@ -1,6 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Job = sequelize.define('Job', {
+    clientname: DataTypes.STRING,
     address: DataTypes.STRING,
     orderdate: DataTypes.DATE,
     sitesize: DataTypes.INTEGER,

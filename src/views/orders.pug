@@ -19,10 +19,6 @@ body(id='bootstrap-override')
 					option Kiiskinen
 					option Mäkilä
 					option Huoman
-					option(id="newclientname") Lisää uusi tilaaja..
-			div(class='form-group' id="newclient")
-				label(for='newclientinput') Uusi tilaaja
-				input(class='form-control' type='text' id='newclientinput')
 			div(class='form-group')
 				label(class="control-label" for='address') Osoite
 				input(class='form-control' type='text' id='address' required)
@@ -34,7 +30,7 @@ body(id='bootstrap-override')
 				input(class='form-control' type='tel' id='sitesize' placeholder='m2' required)
 			div(class='form-check')
 				label(class='form-check-label') Kivitöitä 
-					input(class='form-check-input' type='checkbox' value='' name='stoneworkcheck' data-on-text='Kyllä' data-off-text='Ei' data-on-color='success' data-off-color='danger')
+					input(class='form-check-input' type='checkbox' value='' name='stoneworkcheck' id="stoneworkcheckid" data-on-text='Kyllä' data-off-text='Ei' data-on-color='success' data-off-color='danger')
 			div(class='form-group stoneworkdescription-container')
 				label(class="control-label" for='stoneworkdescription') Kivityön kuvaus
 				textarea(class='form-control' id='stoneworkdescription' rows='3')

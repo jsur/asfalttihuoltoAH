@@ -1,5 +1,5 @@
 /*http://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_bottom*/
-
+var url = window.location.href
 // Get the modal
 var modal = document.getElementById('order-modal-id');
 
@@ -28,14 +28,42 @@ $(function() {
 	var orderbutton = $(".confirm");
 
 	orderbutton.click(function () {
-		modal.style.display = "none";
-		$("html, body").animate({ scrollTop: 0 }, "fast");
-		$(".postsuccess").css("display", "block");
-		//POST request here, display postsuccess on successful POST
+		postOrder();
 	});
 
 	$(".go-back").click(function() {
 		modal.style.display = "none";
 	});
-	
 });
+
+/*AJAX calls*/
+
+postOrder = 
+
+	function postOrder(url) { $.ajax({
+		type: "POST",
+		url: url,
+		dataType: "json",
+		data: {
+			id: '',
+			clientname: $("#clientname").val(),
+			address: $("#address").val(),
+			orderdate: $("#orderdate").val(),
+			sitesize: $("#sitesize").val(),
+			stonework: $("#stoneworkcheckid").is(':checked'),
+			stoneworkdescription: $("#stoneworkdescription").val(),
+			streetcategory: $("#streetcategories").val(),
+			completiongoal: $("#completiongoal").val(),
+			completiondate: $("#completiondate").val()
+		},
+		success: function(data, status) {
+			modal.style.display = "none";
+			$("html, body").animate({ scrollTop: 0 }, "fast");
+			$(".postsuccess").css("display", "block");
+			console.log("Order complete.")
+			},
+		error: function(data, status) {
+			console.log(data);
+			}
+		})
+	}

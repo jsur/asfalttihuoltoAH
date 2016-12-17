@@ -14,19 +14,6 @@ $(".bootstrap-switch, .bootstrap-switch-handle-off, .bootstrap-switch-handle-on"
 	}
 });
 
-$("#clientname").change(function() {
-	var id = ($(this).children(":selected").attr("id"));
-	if(id == "newclientname") {
-		$("#newclient").slideToggle(300);
-		$("#newclientinput").prop("required", true);
-
-	}
-	else {
-		$("#newclientinput").val("");
-		$("#newclient").css('display', 'none');
-	}
-});
-
 $(".orderbutton").click(function() {
 
 	var page = $("html, body");
@@ -56,25 +43,15 @@ $(".orderbutton").click(function() {
 	});
 });
 
-
-/*AJAX calls*/
-/*
-postOrder = 
-
-	function postOrder(url, i) { $.ajax({
-		type: "POST",
-		url: url,
-		dataType: "json",
-		data: {
-			name: $("#kaljasakko-name" + i).val(),
-			amount: $("#kaljasakko-sum" + i).val(),
-			reason: $("#kaljasakko-reason" + i).val()
-		},
-		success: function(data, status) {
-			($("#sakko" + i).attr('object-id', data));
-			},
-		error: function(data, status) {
-			console.log(data);
-			}
-		})
-	}*/
+// $("#clientname").change(function() {
+// 	var id = ($(this).children(":selected").attr("id"));
+// 	if(id == "newclientname") {
+// 		$("#newclient").slideToggle(300);
+// 		$("#newclientinput").prop("required", true);
+// 	}
+// 	else {
+// 		$("#newclientinput").val("");
+// 		$("#newclient").css('display', 'none');
+// 	}
+// });
+//This can be used if adding a new clientname is needed in the future
