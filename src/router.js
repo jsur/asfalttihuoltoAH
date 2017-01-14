@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
-//const models = require('../server/models/index.js');
+const models = require('../server/models/index.js');
 const errormessage = "<h1>Server error occurred. Please come again.</h1>"
 
 //GET
