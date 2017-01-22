@@ -20,7 +20,7 @@ pg.connect(process.env.DATABASE_URL || 'postgresql://127.0.0.1:5432/asfalttihuol
   console.log('Connected to postgres! Getting schemas...');
 
   client
-    .query('select id from public."Jobs" order by id desc limit 1;')
+    .query('SELECT table_schema,table_name FROM information_schema.tables limit 1;')
     .on('row', function(row) {
       console.log(JSON.stringify(row));
     });
