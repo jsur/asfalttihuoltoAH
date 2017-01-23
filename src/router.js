@@ -8,14 +8,21 @@ const errormessage = "<h1>Server error occurred. Please come again.</h1>"
 
 //GET
 
-router.get('/', function(req, res) { 
+router.get('/', function(req, res) {
         res.render('orders'); 
 
     });
 
 router.get('/avoimet', function(req, res) { 
-        res.render('ongoingjobs');
+    models.Job.findAll({
+        where: {
+            billed: false
+        }
+    }).then(function(data) {
+        res.render('ongoingjobs', { data: data });
+        console.log(data[0]);
     });
+});
 
 //POST
 

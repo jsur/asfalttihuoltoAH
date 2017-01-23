@@ -12,20 +12,25 @@ body(id='bootstrap-override')
 					thead
 						tr
 							th Tilaaja
-							th Osoite
+							th Tilausosoite
 							th Tilauspvm
 					tbody
-						tr
-							td Suurkari
-							td Vihertie 1
-							td 11.11.2016
-				div(class="btn-group")
-					button(class="btn btn-default job-start") Aloita työ
-						span(class="glyphicon glyphicon-play")
-					button(class="btn btn-default job-ready" disabled) Aseta valmiiksi
-						span(class="glyphicon glyphicon-flag")
-					button(id="job-billed-id" class="btn btn-default job-billed" disabled) Laskutettu
-						span(class="glyphicon glyphicon-eur")
+						each value, i in data
+							tr
+								- var str = data[i].orderdate
+								- var date = new Date(str)
+								- var day = date.getDate();
+								- var mth = date.getMonth() + 1;
+								- var year = date.getFullYear();
+								td #{data[i].clientname}
+								td #{data[i].address}
+								td= day + '.' + mth + '.' + year
+				button(class="btn btn-default job-start") Aloita työ
+					span(class="glyphicon glyphicon-play")
+				button(class="btn btn-default job-ready" disabled) Aseta valmiiksi
+					span(class="glyphicon glyphicon-flag")
+				button(id="job-billed-id" class="btn btn-default job-billed" disabled) Laskutettu
+					span(class="glyphicon glyphicon-eur")
 	include includes/billed-modal.pug
 	include includes/footer.pug
 	script(src="js/ongoingjobs.js")
