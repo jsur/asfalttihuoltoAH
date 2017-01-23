@@ -20,7 +20,6 @@ router.get('/avoimet', function(req, res) {
         }
     }).then(function(data) {
         res.render('ongoingjobs', { data: data });
-        console.log(data[0]);
     });
 });
 
