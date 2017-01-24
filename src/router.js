@@ -10,14 +10,14 @@ const errormessage = "<h1>Server error occurred. Please come again.</h1>"
 
 router.get('/', function(req, res) {
         res.render('orders'); 
-
     });
 
-router.get('/avoimet', function(req, res) { 
+router.get('/avoimet', function(req, res, next) {
     models.Job.findAll({
         where: {
             billed: false
-        }
+        },
+        order: [['orderdate', 'ASC']]
     }).then(function(data) {
         res.render('ongoingjobs', { data: data });
     });

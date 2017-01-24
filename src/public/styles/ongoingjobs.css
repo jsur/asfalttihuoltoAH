@@ -14,13 +14,8 @@
 	margin-left: 5px;
 }
 
+.selected {
+	background-color: #ECECEC;
+}
+
 /*Media queries*/
-
-@media (max-width: 768px) {
-
-}
-
-@media (max-width: 450px) {
-
-}
-

@@ -40,19 +40,39 @@ h1 {
 }
 
 @media only screen and (max-width : 480px) {
-
+  .container-fluid td {
+    font-size: 0.95em;
+  }
+  .container-fluid th {
+    font-size: 0.95em;
+  }
 }
 
 @media only screen and (max-width : 390px) {
-
+  .container-fluid td {
+    font-size: 0.90em;
+  }
+  .container-fluid th {
+    font-size: 0.90em;
+  }
 }
 
 /*LG G4*/
 @media only screen and (max-width : 360px) {
-
+  .container-fluid td {
+    font-size: 0.87em;
+  }
+  .container-fluid th {
+    font-size: 0.87em;
+  }
 }
 
 /*iPhone 5 and down*/
 @media only screen and (max-width : 320px) {
-
+  .container-fluid td {
+    font-size: 0.85em;
+  }
+  .container-fluid th {
+    font-size: 0.85em;
+  }
 }

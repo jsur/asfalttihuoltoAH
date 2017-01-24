@@ -1,5 +1,18 @@
 $(function() {
 
+/*Events*/
+
+	$("tbody tr").click(function() {
+		if($(this).hasClass('selected')) {
+			$(this).removeClass('selected');
+			$(".job-start").attr('disabled', 'true');
+		} else {
+			$("tbody tr").not(this).removeClass('selected');
+			$(this).toggleClass('selected');
+			$(".job-start").removeAttr('disabled');
+		}
+	});
+
 	$(".job-start").click(function() {
 
 		if($(".job-start").hasClass("btn-success")) {

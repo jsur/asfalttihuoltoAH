@@ -16,7 +16,7 @@ body(id='bootstrap-override')
 							th Tilauspvm
 					tbody
 						each value, i in data
-							tr
+							tr(id=data[i].id)
 								- var str = data[i].orderdate
 								- var date = new Date(str)
 								- var day = date.getDate();
@@ -25,8 +25,8 @@ body(id='bootstrap-override')
 								td #{data[i].clientname}
 								td #{data[i].address}
 								td= day + '.' + mth + '.' + year
-				div(class="btn-group")
-					button(class="btn btn-default job-start") Aloita työ
+				div(class="btn-group job-statusgroup")
+					button(class="btn btn-default job-start" disabled) Aloita työ
 						span(class="glyphicon glyphicon-play")
 					button(class="btn btn-default job-ready" disabled) Aseta valmiiksi
 						span(class="glyphicon glyphicon-flag")
@@ -36,3 +36,4 @@ body(id='bootstrap-override')
 	include includes/footer.pug
 	script(src="js/ongoingjobs.js")
 	script(src="js/billed-modal.js")
+	script(type="text/javascript") var data = !{JSON.stringify(data)};
