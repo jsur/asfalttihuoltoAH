@@ -5,6 +5,14 @@ nav(class='navbar navbar-inverse navbar-fixed-top text-center')
 link(rel="stylesheet" href="/styles/ongoingjobs.css" type="text/css")
 link(rel="stylesheet" href="/styles/confirmation-modal.css" type="text/css")
 body(id='bootstrap-override')
+	div(class="job-statusgroup-container" hidden)
+		div(class="btn-group job-statusgroup")
+			button(class="btn btn-default job-start" disabled) Aloita työ
+				span(class="glyphicon glyphicon-play")
+			button(class="btn btn-default job-ready" disabled) Aseta valmiiksi
+				span(class="glyphicon glyphicon-flag")
+			button(id="job-billed-id" class="btn btn-default job-billed" disabled) Laskutettu
+				span(class="glyphicon glyphicon-eur")
 	div(class='container-fluid')
 		div(class="ongoingjoblist")
 			div(class="ongoingjob")
@@ -25,13 +33,6 @@ body(id='bootstrap-override')
 								td #{data[i].clientname}
 								td #{data[i].address}
 								td= day + '.' + mth + '.' + year
-				div(class="btn-group job-statusgroup")
-					button(class="btn btn-default job-start" disabled) Aloita työ
-						span(class="glyphicon glyphicon-play")
-					button(class="btn btn-default job-ready" disabled) Aseta valmiiksi
-						span(class="glyphicon glyphicon-flag")
-					button(id="job-billed-id" class="btn btn-default job-billed" disabled) Laskutettu
-						span(class="glyphicon glyphicon-eur")
 	include includes/billed-modal.pug
 	include includes/footer.pug
 	script(src="js/ongoingjobs.js")

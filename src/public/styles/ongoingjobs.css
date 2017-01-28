@@ -18,4 +18,22 @@
 	background-color: #ECECEC;
 }
 
+.container-fluid-row-edit {
+	margin-top: 60px;
+}
+
+.job-statusgroup-container {
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	position: fixed;
+	left: 25%;
+}
+
+.job-start,
+.job-ready,
+.job-billed {
+	padding: 15px;
+}
+
 /*Media queries*/

@@ -3,6 +3,8 @@ $(function() {
 /*Events*/
 
 	$("tbody tr").click(function() {
+
+
 		if($(this).hasClass('selected')) {
 			$(this).removeClass('selected');
 			$(".job-start").attr('disabled', 'true');
@@ -10,6 +12,10 @@ $(function() {
 			$("tbody tr").not(this).removeClass('selected');
 			$(this).toggleClass('selected');
 			$(".job-start").removeAttr('disabled');
+			$(".container-fluid").addClass('container-fluid-row-edit');
+			if($(".job-statusgroup-container").attr("hidden")) {
+				$(".job-statusgroup-container").slideToggle("fast").removeAttr("hidden");
+			}
 		}
 	});
 
