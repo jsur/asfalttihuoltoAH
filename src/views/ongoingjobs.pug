@@ -31,11 +31,19 @@ body(id='bootstrap-override')
 								- var day = date.getDate();
 								- var mth = date.getMonth() + 1;
 								- var year = date.getFullYear();
-								td #{data[i].clientname}
+								- var completed = data[i].completed
+								- var started = data[i].started
+									if completed == true && started == true
+										td &#10004; #{data[i].clientname}
+									else if completed == false && started == true
+										td &#9654; #{data[i].clientname}
+									else
+										td #{data[i].clientname}
 								td #{data[i].address}
 								td= day + '.' + mth + '.' + year
 	include includes/billed-modal.pug
 	include includes/footer.pug
 	script(src="js/ongoingjobs.js")
+	script(src="js/updatejob.js")
 	script(src="js/billed-modal.js")
 	script(type="text/javascript") var data = !{JSON.stringify(data)};

@@ -62,12 +62,4 @@ router.put('/avoimet', function(req, res) {
 });
 
 
-
-
-
-
-
-
-
-
 module.exports = router;

@@ -4,6 +4,10 @@
 	
 }
 
+#bootstrap-override tr td:first-child {
+	min-width: 85px;
+}
+
 /*Element styles*/
 
 /*Id styles*/

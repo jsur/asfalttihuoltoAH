@@ -33,11 +33,29 @@ $(function() {
 	var billedbutton = $(".confirm");
 
 	billedbutton.click(function () {
-		billedbutton.after("<span>Ja nyt päivittyy tiedot tietokantaan.</span>")
+		var selectedid = $("tbody tr").closest('.selected').attr('id');
+		var i = $("tbody tr").closest('.selected').index();
+		console.log(selectedid, i);
+
+		updateJobStatusBilled(selectedid, i)
 	});
 
 	$(".go-back").click(function() {
 		modal.style.display = "none";	
 	});
-	
 });
+
+/*AJAX calls*/
+
+function updateJobStatusBilled(selectedid, i) {
+
+		jobUpdateAJAX(
+				selectedid, //id
+				data[i].started, //started
+				data[i].startdate, //startdate
+				data[i].completed, //completed
+				data[i].completiondate, //completiondate
+				true //billed
+			);
+		window.location.reload();
+	};

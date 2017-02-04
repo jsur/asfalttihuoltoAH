@@ -150,15 +150,15 @@ function updateJobStatusStarted(selectedid, i) {
 
 	if(data[i].id == selectedid && data[i].started == false) {
 		jobUpdateAJAX(
-			selectedid, //id
-			true, //started
-			datestring //startdate
+				selectedid, //id
+				true, //started
+				datestring //startdate
 			);
 	} else if (data[i].id == selectedid && data[i].started == true) {
 		jobUpdateAJAX(
-			selectedid, //id
-			false, //started
-			'0001-01-01' //startdate
+				selectedid, //id
+				false, //started
+				'0001-01-01' //startdate
 			);
 	}
 };
@@ -167,54 +167,23 @@ function updateJobStatusStarted(selectedid, i) {
 
 function updateJobStatusCompleted(selectedid, i) {
 
-	if(
-		data[i].id == selectedid && data[i].started == true && data[i].completed == false) {
+	if(data[i].id == selectedid && data[i].started == true && data[i].completed == false) {
 		jobUpdateAJAX(
-			selectedid, //id
-			data[i].started, //started
-			data[i].startdate, //startdate
-			true, //completed
-			datestring, //completiondate
-			false //billed
+				selectedid, //id
+				data[i].started, //started
+				data[i].startdate, //startdate
+				true, //completed
+				datestring, //completiondate
+				false //billed
 			);
 	} else if (data[i].id == selectedid && data[i].started == true && data[i].completed == true) {
 		jobUpdateAJAX(
-			selectedid, //id
-			data[i].started, //started
-			data[i].startdate, //startdate
-			false, //completed
-			'0001-01-01', //completiondate
-			false //billed
+				selectedid, //id
+				data[i].started, //started
+				data[i].startdate, //startdate
+				false, //completed
+				'0001-01-01', //completiondate
+				false //billed
 			);
 	}
 };
-
-//call for onclick --> billed = true
-
-
-
-function jobUpdateAJAX(id, started, startdate, completed, completiondate, billed) {$.ajax({
-		type: "PUT",
-		url: window.location.href,
-		dataType: "json",
-		data: {
-			id: id,
-			started: started,
-			startdate: startdate,
-			completed: completed,
-			completiondate: completiondate,
-			billed: billed
-		},
-		success: function(data, status) {
-			console.log("Job " + id + " updated.");
-			},
-		error: function(data, status) {
-			console.log("Job update failed! " + "id: " + id + ". " + data.status + " " + data.statusText + ".");
-			$(".job-update-failed").css("display", "block");
-			}
-		});
-	};
-
-
-
-
