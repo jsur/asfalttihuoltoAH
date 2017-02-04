@@ -46,4 +46,28 @@ router.post('/', function(req, res) {
     });
 });
 
+//PUT
+
+router.put('/avoimet', function(req, res) {
+    models.Job.upsert({
+        id: req.body.id,
+        started: req.body.started,
+        startdate: req.body.startdate,
+        completed: req.body.completed,
+        actual_completion_date: req.body.completiondate,
+        billed: req.body.billed
+    }).then(function(job) {
+        res.json(job);
+    });
+});
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
