@@ -36,6 +36,13 @@ $(function() {
 	});
 });
 
+
+function refresh() {
+	setTimeout(function () {
+	location.reload();
+	}, 3000);
+}
+
 /*AJAX calls*/
 
 postOrder = 
@@ -61,7 +68,8 @@ postOrder =
 			$("html, body").animate({ scrollTop: 0 }, "fast");
 			$(".postsuccess").css("display", "block");
 			console.log("Order complete.")
-			},
+			refresh();
+		},
 		error: function(data, status) {
 			$("#post-order-button").after("<span class='errormsg'> Virhe tallennuksessa! Ota yhteys ylläpitoon.</span>")
 			console.log(data);
