@@ -68,6 +68,7 @@ postOrder =
 			$("html, body").animate({ scrollTop: 0 }, "fast");
 			$(".postsuccess").css("display", "block");
 			console.log("Order complete.")
+			$(".orderform :input").prop("disabled", true);
 			refresh();
 		},
 		error: function(data, status) {
