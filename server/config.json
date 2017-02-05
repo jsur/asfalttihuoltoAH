@@ -1,18 +1,18 @@
 {
   "development": {
     "username": "julius.suominen",
-    "password": "Piiver2",
+    "password": "testisalasana",
     "database": "asfalttihuolto",
     "host": "127.0.0.1",
     "port": "5432",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "asfalttihuolto",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
