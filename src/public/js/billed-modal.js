@@ -35,7 +35,6 @@ $(function() {
 	billedbutton.click(function () {
 		var selectedid = $("tbody tr").closest('.selected').attr('id');
 		var i = $("tbody tr").closest('.selected').index();
-		console.log(selectedid, i);
 
 		updateJobStatusBilled(selectedid, i)
 	});
