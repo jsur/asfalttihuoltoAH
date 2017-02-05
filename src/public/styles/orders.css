@@ -42,6 +42,13 @@
 
 /*Media queries*/
 
+@media (min-width: 768px) {
+	.container-fluid {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+}
+
 @media (max-width: 768px) {
 
 }
