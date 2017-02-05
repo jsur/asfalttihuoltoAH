@@ -1,0 +1,28 @@
+include includes/header.pug
+nav(class='navbar navbar-inverse navbar-fixed-top text-center')
+	a(class="navbar-brand" href="/laskutetut") Laskutetut työt
+	span(id="openbtn") &#9776;
+link(rel="stylesheet" href="/styles/billedjobs.css" type="text/css")
+body(id='bootstrap-override')
+	div(class='container-fluid')
+		div(class="ongoingjoblist")
+			div(class="ongoingjob")
+				table(class="table table-responsive")
+					thead
+						tr
+							th Tilaaja
+							th Tilausosoite
+							th Valmistumispäivä
+					tbody
+						each value, i in data
+							tr(id=data[i].id)
+								- var str = data[i].actual_completion_date
+								- var date = new Date(str)
+								- var day = date.getDate();
+								- var mth = date.getMonth() + 1;
+								- var year = date.getFullYear();
+								td #{data[i].clientname}
+								td #{data[i].address}
+								td= day + '.' + mth + '.' + year
+	include includes/footer.pug
+	script(src="js/billedjobs.js")

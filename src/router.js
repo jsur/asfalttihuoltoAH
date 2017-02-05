@@ -12,6 +12,8 @@ router.get('/', function(req, res) {
         res.render('orders'); 
     });
 
+//ongoingjobs
+
 router.get('/avoimet', function(req, res, next) {
     models.Job.findAll({
         where: {
@@ -20,6 +22,19 @@ router.get('/avoimet', function(req, res, next) {
         order: [['orderdate', 'ASC']]
     }).then(function(data) {
         res.render('ongoingjobs', { data: data });
+    });
+});
+
+//billedjobs
+
+router.get('/laskutetut', function(req, res, next) {
+    models.Job.findAll({
+        where: {
+            billed: true
+        },
+        order: [['clientname', 'ASC'], ['actual_completion_date', 'ASC']]
+    }).then(function(data) {
+        res.render('billedjobs', { data: data });
     });
 });
 

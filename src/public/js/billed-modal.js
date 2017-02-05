@@ -57,5 +57,6 @@ function updateJobStatusBilled(selectedid, i) {
 				data[i].completiondate, //completiondate
 				true //billed
 			);
+		$("tbody tr").closest('.selected').css('background-color', '#00B16A').fadeOut('fast');
 		window.location.reload();
 	};
