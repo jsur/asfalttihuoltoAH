@@ -25,6 +25,19 @@ router.get('/avoimet', function(req, res, next) {
     });
 });
 
+router.get('/api/avoimet', function(req, res, next) {
+    models.Job.findAll({
+        where: {
+            billed: false
+        },
+        order: [['orderdate', 'ASC']]
+    }).then(function(data) {
+        res.send({data});
+    });
+});
+
+
+
 //billedjobs
 
 router.get('/laskutetut', function(req, res, next) {
