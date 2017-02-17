@@ -32,11 +32,9 @@ $(function() {
 		if($(".job-start").hasClass("btn-success")) {
 			removeJobStatusStarted();
 			updateJobStatusStarted(selectedid, i);
-			window.location.reload();
 		} else {
 			setJobStatusStarted();
 			updateJobStatusStarted(selectedid, i);
-			window.location.reload();
 		}
 	});
 
@@ -48,11 +46,9 @@ $(function() {
 		if($(".job-ready").hasClass("btn-success")) {
 			removeJobStatusCompleted();
 			updateJobStatusCompleted(selectedid, i);
-			window.location.reload();
 		} else {
 			setJobStatusCompleted();
 			updateJobStatusCompleted(selectedid, i);
-			window.location.reload();
 		}
 	});
 

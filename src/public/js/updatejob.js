@@ -12,6 +12,7 @@ function jobUpdateAJAX(id, started, startdate, completed, completiondate, billed
 		},
 		success: function(data, status) {
 			console.log("Job " + id + " updated.");
+			window.location.reload();
 			},
 		error: function(data, status) {
 			console.log("Job update failed! " + "id: " + id + ". " + data.status + " " + data.statusText + ".");
