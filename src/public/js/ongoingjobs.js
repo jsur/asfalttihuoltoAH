@@ -6,6 +6,7 @@ $(function() {
 
 		var id = this.id;
 		var i = $(this).index();
+		console.log(id, i);
 
 		giveJobStatusButtonStyles(id, i);
 
@@ -17,11 +18,9 @@ $(function() {
 			$(".container-fluid").addClass('container-fluid-row-edit');
 			}
 
-		if($(".job-statusgroup-container").attr("hidden")) {
-			$(".job-statusgroup-container").slideToggle('fast').removeAttr('hidden');
-		} else if(!$("tbody tr").hasClass('selected')) {
-			$(".job-statusgroup-container").slideToggle('fast').attr('hidden', 'true');
-		}
+		hideOrDisplayJobStatusButtons();
+		hideOrDisplayJobAdditionalInfoButton();
+
 	});
 
 	$(".job-start").click(function() {
@@ -50,6 +49,20 @@ $(function() {
 			setJobStatusCompleted();
 			updateJobStatusCompleted(selectedid, i);
 		}
+	});
+
+	$(".job-additional-info").click(function() {
+
+		var selectedid = $("tbody tr").closest('.selected').attr('id');
+		getJobAdditionalInfoById(selectedid);
+
+	});
+
+	$("#jobInfo-closebtn").click(function() {
+
+	    $("#jobInfo").css({"height": "0%"});
+	    $("#openbtn").css({"display": "block"});
+
 	});
 
 /*Functions for events*/
@@ -136,6 +149,22 @@ $(function() {
 		$(".job-start").removeAttr('disabled');
 	}
 
+	function hideOrDisplayJobStatusButtons() {
+		if($(".job-statusgroup-container").attr("hidden")) {
+			$(".job-statusgroup-container").slideToggle('fast').removeAttr('hidden');
+		} else if(!$("tbody tr").hasClass('selected')) {
+			$(".job-statusgroup-container").slideToggle('fast').attr('hidden', 'true');
+		}
+	}
+
+	function hideOrDisplayJobAdditionalInfoButton() {
+		if($(".job-additional-info").css('display') == 'none') {
+			$(".job-additional-info").slideToggle('fast').removeAttr('hidden');
+		} else if(!$("tbody tr").hasClass('selected')) {
+			$(".job-additional-info").slideToggle('fast').css('display', 'none');
+		}
+	}
+
 });
 
 
@@ -187,3 +216,42 @@ function updateJobStatusCompleted(selectedid, i) {
 			);
 	}
 };
+
+function getJobAdditionalInfoById(i) {$.ajax({
+		type: "GET",
+		url: window.location.origin + '/api/avoimet-by-id',
+		dataType: "json",
+		data: {
+			id: i,
+		},
+		success: function(data, status) {
+			$(".job-info-overlay-container").empty();
+
+			var str = data.data.completiondate;
+			var date = new Date(str);
+			var day = date.getDate();
+			var mth = date.getMonth() + 1;
+			var year = date.getFullYear();
+
+			var stoneworkflag = ''
+			if(data.data.stonework == true) {
+				stoneworkflag = 'Kyllä'
+			} else {
+				stoneworkflag = 'Ei'
+			}
+
+			$(".job-info-overlay-container")
+				.append('<p>Työmaan koko: ' + data.data.sitesize + '</p>')
+				.append('<p>Kivitöitä: ' + stoneworkflag + '</p>')
+				.append('<p>Kivityön kuvaus: ' + data.data.stoneworkdescription + '</p>')
+				.append('<p>Katuluokat: ' + data.data.streetcategory + '</p>')
+				.append('<p>Mahdollisuus aloittaa työt: ' + data.data.completiongoal + '</p>')
+				.append('<p>Haluttu valmistumispvm: ' + day + '.' + mth + '.' + year + '</p>');
+			$("#jobInfo").css({"height": "100%"});
+			$("#openbtn").css({"display": "none"});
+			},
+		error: function(data, status) {
+			console.log('meni pieleen' + data);
+			}
+		});
+	};

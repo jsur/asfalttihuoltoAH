@@ -36,6 +36,11 @@ router.get('/api/avoimet', function(req, res, next) {
     });
 });
 
+router.get('/api/avoimet-by-id', function(req, res, next) {
+    models.Job.findById(req.query.id).then(function(data) {
+        res.send({data});
+    });
+});
 
 
 //billedjobs

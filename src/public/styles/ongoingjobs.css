@@ -22,10 +22,6 @@
 	background-color: #ECECEC;
 }
 
-.container-fluid-row-edit {
-	margin-top: 20px;
-}
-
 .job-statusgroup-container {
 	text-align: center;
 	margin-top: 5px;
@@ -36,6 +32,14 @@
 .job-ready,
 .job-billed {
 	padding: 15px;
+}
+
+.job-additional-info {
+	width: 100%;
+	margin-bottom: 0.3em;
+	padding: 3% 0 3% 0;
+	font-weight: 800;
+	display: none;
 }
 
 .job-update-failed {
