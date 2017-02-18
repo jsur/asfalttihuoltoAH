@@ -6,7 +6,6 @@ $(function() {
 
 		var id = this.id;
 		var i = $(this).index();
-		console.log(id, i);
 
 		giveJobStatusButtonStyles(id, i);
 

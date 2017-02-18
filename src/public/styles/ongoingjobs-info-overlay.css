@@ -31,4 +31,5 @@
     top: 20px;
     right: 0px;
     font-size: 60px;
+    z-index: 10;
 }
