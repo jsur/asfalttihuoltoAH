@@ -41,9 +41,11 @@ body(id='bootstrap-override')
 								- var completed = data[i].completed
 								- var started = data[i].started
 									if completed == true && started == true
-										td &#10004; #{data[i].clientname}
+										td #{data[i].clientname}
+											img(src="/icons/correct-symbol.svg" class='icon-complete')
 									else if completed == false && started == true
-										td &#9654; #{data[i].clientname}
+										td #{data[i].clientname}
+											img(src="/icons/play-button.svg" class='icon-started')
 									else
 										td #{data[i].clientname}
 								td #{data[i].address}
@@ -54,3 +56,5 @@ body(id='bootstrap-override')
 	script(src="js/updatejob.js")
 	script(src="js/billed-modal.js")
 	script(class="json-data" type="text/javascript") data = !{JSON.stringify(data)};
+	//-Correct symbol: http://www.flaticon.com/free-icon/correct-symbol_25404
+	//-Play button: http://www.flaticon.com/free-icon/music-player-play_70409

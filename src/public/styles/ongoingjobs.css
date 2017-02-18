@@ -48,4 +48,12 @@
 	width: 95%;
 }
 
+.icon-complete,
+.icon-started {
+	float: left;
+	margin-right: 0.5em;
+	margin-top: 0.2em;
+	width: 15px;
+}
+
 /*Media queries*/
