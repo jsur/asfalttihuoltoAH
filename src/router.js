@@ -9,7 +9,7 @@ const errormessage = "<h1>Server error occurred. Please come again.</h1>"
 //GET
 
 router.get('/', function(req, res) {
-        res.render('orders');
+        res.render('orders'); 
     });
 
 //ongoingjobs
@@ -87,9 +87,8 @@ router.put('/avoimet', function(req, res) {
         started: req.body.started,
         startdate: req.body.startdate,
         completed: req.body.completed,
-        actual_completion_date: req.body.actual_completion_date,
-        billed: req.body.billed,
-        original_startdate: req.body.original_startdate
+        actual_completion_date: req.body.completiondate,
+        billed: req.body.billed
     }).then(function(job) {
         res.json(job);
     });

@@ -1,4 +1,4 @@
-function jobUpdateAJAX(id, started, startdate, completed, actual_completion_date, billed, original_startdate) {$.ajax({
+function jobUpdateAJAX(id, started, startdate, completed, completiondate, billed) {$.ajax({
 		type: "PUT",
 		url: window.location.href,
 		dataType: "json",
@@ -7,9 +7,8 @@ function jobUpdateAJAX(id, started, startdate, completed, actual_completion_date
 			started: started,
 			startdate: startdate,
 			completed: completed,
-			actual_completion_date: actual_completion_date,
-			billed: billed,
-			original_startdate: original_startdate
+			completiondate: completiondate,
+			billed: billed
 		},
 		success: function(data, status) {
 			console.log("Job " + id + " updated.");
@@ -20,4 +19,4 @@ function jobUpdateAJAX(id, started, startdate, completed, actual_completion_date
 			$(".job-update-failed").css("display", "block");
 			}
 		});
-	}
+	};
