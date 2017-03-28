@@ -67,14 +67,13 @@ $(function() {
 /*Functions for events*/
 
 	function giveJobStatusButtonStyles(id, i) {
-		
+
 		if(
-			data[i].id == id && 
-			data[i].started == true && 
-			data[i].completed == true &&
-			$(".job-start, .job-ready").hasClass('btn-default')
-			) {
-			
+			data[i].id == id &&
+			data[i].started === true &&
+			data[i].completed === true &&
+			$(".job-start, .job-ready").hasClass('btn-default')) {
+
 			//If only final billing is needed
 			$(".job-start, .job-ready").removeClass('btn-default');
 			setJobStatusStarted();
@@ -82,10 +81,9 @@ $(function() {
 			console.log('vain laskutus puuttuu');
 
 		} else if (
-			data[i].id == id && 
-			data[i].started == true && 
-			data[i].completed == false //&&
-			) {
+			data[i].id == id &&
+			data[i].started === true &&
+			data[i].completed === false) {
 
 			//If job has only been started
 			$(".job-start").removeClass('btn-default');
@@ -97,9 +95,9 @@ $(function() {
 			console.log('työ aloitettu');
 
 		} else if (
-			data[i].id == id && 
-			data[i].started == false && 
-			data[i].completed == false
+			data[i].id == id &&
+			data[i].started === false &&
+			data[i].completed === false
 			) {
 			removeJobStatusCompleted();
 			removeJobStatusStarted();
@@ -107,7 +105,7 @@ $(function() {
 		} else {
 			console.log('mikä homma?');
 		}
-	};
+	}
 
 	function setJobStatusStarted() {
 		$(".job-start").
@@ -166,7 +164,6 @@ $(function() {
 
 });
 
-
 /*AJAX calls for button actions*/
 
 var date = new Date();
@@ -176,45 +173,72 @@ var datestring = date.toISOString().substr(0, 10);
 
 function updateJobStatusStarted(selectedid, i) {
 
-	if(data[i].id == selectedid && data[i].started == false) {
-		jobUpdateAJAX(
-				selectedid, //id
-				true, //started
-				datestring //startdate
-			);
-	} else if (data[i].id == selectedid && data[i].started == true) {
+	if(data[i].id == selectedid && data[i].started === false) {
+
+		if(data[i].original_startdate === null) {
+			var originalstartdate;
+			originalstartdate = datestring;
+
+			//Update original start date only once.
+			jobUpdateAJAX(
+					selectedid, //id
+					true, //started
+					datestring, //startdate
+					false, //completed
+					'0001-01-01', //actual_completion_date
+					false, //billed
+					originalstartdate //original_startdate
+				);
+		} else {
+			jobUpdateAJAX(
+					selectedid, //id
+					true, //started
+					datestring, //startdate
+					false, //completed
+					'0001-01-01', //actual_completion_date
+					false //billed
+				);
+		}
+
+	} else if (data[i].id == selectedid && data[i].started === true) {
 		jobUpdateAJAX(
 				selectedid, //id
 				false, //started
-				'0001-01-01' //startdate
+				'0001-01-01', //startdate
+				false, //completed
+				'0001-01-01', //actual_completion_date
+				false //billed
+				//original_startdate
 			);
 	}
-};
+}
 
 //started and completed = true
 
 function updateJobStatusCompleted(selectedid, i) {
 
-	if(data[i].id == selectedid && data[i].started == true && data[i].completed == false) {
+	if(data[i].id == selectedid && data[i].started === true && data[i].completed === false) {
 		jobUpdateAJAX(
 				selectedid, //id
 				data[i].started, //started
 				data[i].startdate, //startdate
 				true, //completed
-				datestring, //completiondate
+				datestring, //actual_completion_date
 				false //billed
+				//original_startdate
 			);
-	} else if (data[i].id == selectedid && data[i].started == true && data[i].completed == true) {
+	} else if (data[i].id == selectedid && data[i].started === true && data[i].completed === true) {
 		jobUpdateAJAX(
 				selectedid, //id
 				data[i].started, //started
 				data[i].startdate, //startdate
 				false, //completed
-				'0001-01-01', //completiondate
+				'0001-01-01', //actual_completion_date
 				false //billed
+				//original_startdate
 			);
 	}
-};
+}
 
 function getJobAdditionalInfoById(i) {$.ajax({
 		type: "GET",
@@ -232,14 +256,21 @@ function getJobAdditionalInfoById(i) {$.ajax({
 			var mth = date.getMonth() + 1;
 			var year = date.getFullYear();
 
-			var stoneworkflag = ''
-			if(data.data.stonework == true) {
-				stoneworkflag = 'Kyllä'
+			var str2 = data.data.original_startdate;
+			var date2 = new Date(str2);
+			var day2 = date2.getDate();
+			var mth2 = date2.getMonth() + 1;
+			var year2 = date2.getFullYear();
+
+			var stoneworkflag = '';
+			if(data.data.stonework === true) {
+				stoneworkflag = 'Kyllä';
 			} else {
-				stoneworkflag = 'Ei'
+				stoneworkflag = 'Ei';
 			}
 
 			$(".job-info-overlay-container")
+				.append('<p>Työn aloituspvm: ' + day2 + '.' + mth2 + '.' + year2 + '</p>')
 				.append('<p>Työmaan koko: ' + data.data.sitesize + '</p>')
 				.append('<p>Kivitöitä: ' + stoneworkflag + '</p>')
 				.append('<p>Kivityön kuvaus: ' + data.data.stoneworkdescription + '</p>')
@@ -253,4 +284,4 @@ function getJobAdditionalInfoById(i) {$.ajax({
 			console.log('meni pieleen' + data);
 			}
 		});
-	};
+	}

@@ -49,16 +49,3 @@ $(".orderbutton").click(function() {
 		}
 	});
 });
-
-// $("#clientname").change(function() {
-// 	var id = ($(this).children(":selected").attr("id"));
-// 	if(id == "newclientname") {
-// 		$("#newclient").slideToggle(300);
-// 		$("#newclientinput").prop("required", true);
-// 	}
-// 	else {
-// 		$("#newclientinput").val("");
-// 		$("#newclient").css('display', 'none');
-// 	}
-// });
-//This can be used if adding a new clientname is needed in the future
