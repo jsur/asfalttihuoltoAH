@@ -256,11 +256,23 @@ function getJobAdditionalInfoById(i) {$.ajax({
 			var mth = date.getMonth() + 1;
 			var year = date.getFullYear();
 
-			var str2 = data.data.original_startdate;
-			var date2 = new Date(str2);
-			var day2 = date2.getDate();
-			var mth2 = date2.getMonth() + 1;
-			var year2 = date2.getFullYear();
+			var str2;
+			var date2;
+			var day2;
+			var mth2;
+			var year2;
+
+			if(data.data.original_startdate !== null) {
+				str2 = data.data.original_startdate;
+				date2 = new Date(str2);
+				day2 = date2.getDate() + '.';
+				mth2 = date2.getMonth() + 1 + '.';
+				year2 = date2.getFullYear();
+			} else {
+				day2 = 'Aloituspäivää ';
+				mth2 = 'ei ';
+				year2 = 'annettu.';
+			}
 
 			var stoneworkflag = '';
 			if(data.data.stonework === true) {
@@ -270,7 +282,7 @@ function getJobAdditionalInfoById(i) {$.ajax({
 			}
 
 			$(".job-info-overlay-container")
-				.append('<p>Työn aloituspvm: ' + day2 + '.' + mth2 + '.' + year2 + '</p>')
+				.append('<p>Työn aloituspvm: ' + day2 + mth2 + year2 + '</p>')
 				.append('<p>Työmaan koko: ' + data.data.sitesize + '</p>')
 				.append('<p>Kivitöitä: ' + stoneworkflag + '</p>')
 				.append('<p>Kivityön kuvaus: ' + data.data.stoneworkdescription + '</p>')
