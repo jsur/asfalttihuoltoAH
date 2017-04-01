@@ -67,14 +67,14 @@ $(function() {
 /*Functions for events*/
 
 	function giveJobStatusButtonStyles(id, i) {
-		
+
 		if(
-			data[i].id == id && 
-			data[i].started == true && 
+			data[i].id == id &&
+			data[i].started == true &&
 			data[i].completed == true &&
 			$(".job-start, .job-ready").hasClass('btn-default')
 			) {
-			
+
 			//If only final billing is needed
 			$(".job-start, .job-ready").removeClass('btn-default');
 			setJobStatusStarted();
@@ -82,8 +82,8 @@ $(function() {
 			console.log('vain laskutus puuttuu');
 
 		} else if (
-			data[i].id == id && 
-			data[i].started == true && 
+			data[i].id == id &&
+			data[i].started == true &&
 			data[i].completed == false //&&
 			) {
 
@@ -97,8 +97,8 @@ $(function() {
 			console.log('työ aloitettu');
 
 		} else if (
-			data[i].id == id && 
-			data[i].started == false && 
+			data[i].id == id &&
+			data[i].started == false &&
 			data[i].completed == false
 			) {
 			removeJobStatusCompleted();
@@ -232,14 +232,33 @@ function getJobAdditionalInfoById(i) {$.ajax({
 			var mth = date.getMonth() + 1;
 			var year = date.getFullYear();
 
-			var stoneworkflag = ''
-			if(data.data.stonework == true) {
-				stoneworkflag = 'Kyllä'
+			var str2;
+			var date2;
+			var day2;
+			var mth2;
+			var year2;
+
+			if(data.data.original_startdate !== null) {
+				str2 = data.data.original_startdate;
+				date2 = new Date(str2);
+				day2 = date2.getDate() + '.';
+				mth2 = date2.getMonth() + 1 + '.';
+				year2 = date2.getFullYear();
 			} else {
-				stoneworkflag = 'Ei'
+				day2 = 'Aloituspäivää ';
+				mth2 = 'ei ';
+				year2 = 'annettu.';
+			}
+
+			var stoneworkflag = '';
+			if(data.data.stonework === true) {
+				stoneworkflag = 'Kyllä';
+			} else {
+				stoneworkflag = 'Ei';
 			}
 
 			$(".job-info-overlay-container")
+				.append('<p>Työn aloituspvm: ' + day2 + mth2 + year2 + '</p>')
 				.append('<p>Työmaan koko: ' + data.data.sitesize + '</p>')
 				.append('<p>Kivitöitä: ' + stoneworkflag + '</p>')
 				.append('<p>Kivityön kuvaus: ' + data.data.stoneworkdescription + '</p>')
@@ -253,4 +272,4 @@ function getJobAdditionalInfoById(i) {$.ajax({
 			console.log('meni pieleen' + data);
 			}
 		});
-	};
+	}
