@@ -3,8 +3,11 @@ nav(class='navbar navbar-inverse navbar-fixed-top text-center')
 	a(class="navbar-brand" href="/laskutetut") Laskutetut työt
 	span(id="openbtn") &#9776;
 link(rel="stylesheet" href="/styles/billedjobs.css" type="text/css")
+link(rel="stylesheet" href="/styles/overlay-additional-job-info.css" type="text/css")
 body(id='bootstrap-override')
+	include includes/overlay-additional-job-info
 	div(class='container-fluid')
+		button(class="btn btn-info job-additional-info") Työn lisätiedot
 		div(class="ongoingjoblist")
 			div(class="ongoingjob")
 				table(class="table table-responsive")

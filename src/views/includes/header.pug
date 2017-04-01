@@ -1,12 +1,7 @@
 html
 	head(class='header')
 		title Asfalttihuolto AH OY
-		div(id="myNav" class="overlay")
-			a(href="javascript:void(0)" id="closebtn") &times;
-			div(class="overlay-content")
-				a(href="/") Uusi työ
-				a(href="/avoimet") Avoimet työt
-				a(href="/laskutetut") Laskutetut työt
+		include overlay-main-nav
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet" href="/styles/main.css" type="text/css")
 		link(rel="stylesheet" href="/styles/overlay.css" type="text/css")

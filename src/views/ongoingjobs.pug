@@ -4,7 +4,7 @@ nav(class='navbar navbar-inverse navbar-fixed-top text-center')
 	span(id="openbtn") &#9776;
 link(rel="stylesheet" href="/styles/ongoingjobs.css" type="text/css")
 link(rel="stylesheet" href="/styles/confirmation-modal.css" type="text/css")
-link(rel="stylesheet" href="/styles/ongoingjobs-info-overlay.css" type="text/css")
+link(rel="stylesheet" href="/styles/overlay-additional-job-info.css" type="text/css")
 body(id='bootstrap-override')
 	div(class="alert alert-danger job-update-failed" hidden) Työn tilan päivitys epäonnistui! Virheen toistuessa ota yhteys ylläpitoon.
 	div(class="job-statusgroup-container" hidden)
@@ -15,11 +15,7 @@ body(id='bootstrap-override')
 				span(class="glyphicon glyphicon-flag")
 			button(id="job-billed-id" class="btn btn-default job-billed" disabled) Laskutettu
 				span(class="glyphicon glyphicon-eur")
-	div(id="jobInfo" class="overlay")
-		a(href="javascript:void(0)" id="jobInfo-closebtn") &times;
-		div(class="overlay-content-jobInfo")
-			h1 Lisätiedot
-			div(class='job-info-overlay-container')
+	include includes/overlay-additional-job-info
 	div(class='container-fluid')
 		button(class="btn btn-info job-additional-info") Työn lisätiedot
 		div(class="ongoingjoblist")
