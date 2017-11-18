@@ -14,7 +14,9 @@ app.use('/', express.static(__dirname + '/public'));
 app.use(parser.urlencoded({extended: true}));
 app.use(parser.json());
 
-pg.defaults.ssl = true;
+const env = process.env.NODE = '/usr/local/bin/node' ? 'test' : 'prod';
+pg.defaults.ssl = env === 'test' ? false : true;
+
 pg.connect(process.env.DATABASE_URL || 'postgresql://127.0.0.1:5432/asfalttihuolto', function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
