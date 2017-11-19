@@ -81,7 +81,7 @@ function getJobAdditionalInfoById(i) {$.ajax({
 				.append('<p>Työmaan koko: ' + data.data.sitesize + '</p>')
 				.append('<p>Kivitöitä: ' + stoneworkflag + '</p>')
 				.append('<p>Kivityön kuvaus: ' + data.data.stoneworkdescription + '</p>')
-				.append('<p>Katuluokat: ' + data.data.streetcategory + '</p>')
+				.append('<p>Katuluokat / lisätiedot: ' + data.data.streetcategory + '</p>')
 				.append('<p>Mahdollisuus aloittaa työt: ' + data.data.completiongoal + '</p>')
 				.append('<p>Haluttu valmistumispvm: ' + day + '.' + mth + '.' + year + '</p>');
 			$("#jobInfo").css({"height": "100%"});
