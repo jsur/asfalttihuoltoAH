@@ -5,6 +5,14 @@ const router = express.Router();
 const _ = require('lodash');
 const models = require('../server/models/index.js');
 const errormessage = "<h1>Server error occurred. Please come again.</h1>"
+require('dotenv').config({'path': '.env'});
+const aws = require('aws-sdk');
+const s3_bucket = process.env.S3_BUCKET_NAME;
+
+// aws config
+aws.config.region = 'eu-central-1';
+aws.config.accessKeyId = process.env.S3_KEY;
+aws.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 
 //GET
 
@@ -59,6 +67,7 @@ router.get('/laskutetut', function(req, res, next) {
 //POST
 
 router.post('/', function(req, res) {
+
     models.Job.create({
         clientname: req.body.clientname,
         address: req.body.address,
@@ -73,9 +82,12 @@ router.post('/', function(req, res) {
         startdate: null,
         completed: false,
         actual_completion_date: null,
-        billed: false
+        billed: false,
+        fileurl: req.body.fileurl
     }).then(function(job) {
         res.json(job);
+    }, function(err) {
+        res.json(err);
     });
 });
 
@@ -94,6 +106,33 @@ router.put('/avoimet', function(req, res) {
         res.json(job);
     });
 });
+
+// S3
+
+router.get('/sign-s3', (req, res) => {
+    const s3 = new aws.S3();
+    const fileName = req.query['file-name'];
+    const fileType = req.query['file-type'];
+    const s3Params = {
+      Bucket: s3_bucket,
+      Key: fileName,
+      Expires: 60,
+      ContentType: fileType,
+      ACL: 'public-read'
+    };
+  
+    s3.getSignedUrl('putObject', s3Params, (err, data) => {
+      if(err){
+        return res.end();
+      }
+      const returnData = {
+        signedRequest: data,
+        url: `https://${s3_bucket}.s3.amazonaws.com/${fileName}`
+      };
+      res.write(JSON.stringify(returnData));
+      res.end();
+    });
+  });
 
 
 module.exports = router;

@@ -7,12 +7,12 @@ link(rel='stylesheet' href='/styles/bootstrap-switch.min.css' type='text/css')
 link(rel="stylesheet" href="/styles/confirmation-modal.css" type="text/css")
 body(id='bootstrap-override')
 	div(class='container-fluid')
-		form(class="orderform")
+		form(id='orderform' class="orderform" action="/" method="POST" enctype="multipart/form-data")
 			div(class="alert alert-danger mandatoryfields") Täytä punaisella merkityt pakolliset kentät.
 			div(class="alert alert-success postsuccess") Tilaus lähetetty!
 			div(class='form-group')
 				label(class="control-label" for='clientname') Tilaaja
-				select(class='form-control' type='text' id='clientname' required)
+				select(class='form-control' type='text' id='clientname' name='clientname' required)
 					option(disabled selected value id="placeholder") Valitse tilaaja..
 					option Leppänen
 					option Suurkari
@@ -21,28 +21,34 @@ body(id='bootstrap-override')
 					option Matikainen
 			div(class='form-group')
 				label(class="control-label" for='address') Osoite
-				input(class='form-control' type='text' id='address' required)
+				input(class='form-control' type='text' id='address' name='address' required)
 			div(class='form-group')
 				label(class="control-label" for='orderdate') Tilauspvm
-				input(class='form-control' type='date' id='orderdate' required)
+				input(class='form-control' type='date' id='orderdate' name='orderdate' required)
 			div(class='form-group')
 				label(class="control-label" for='sitesize') Työmaan koko
-				input(class='form-control' type='tel' id='sitesize' placeholder='m2' required)
+				input(class='form-control' type='tel' id='sitesize' placeholder='m2' name='sitesize' required)
 			div(class='form-check')
 				label(class='form-check-label') Kivitöitä 
-					input(class='form-check-input' type='checkbox' value='' name='stoneworkcheck' id="stoneworkcheckid" data-on-text='Kyllä' data-off-text='Ei' data-on-color='success' data-off-color='danger')
+				input(class='form-check-input' type='checkbox' value='' name='stoneworkcheck' id="stoneworkcheckid" data-on-text='Kyllä' data-off-text='Ei' data-on-color='success' data-off-color='danger')
 			div(class='form-group stoneworkdescription-container')
 				label(class="control-label" for='stoneworkdescription') Kivityön kuvaus
-				textarea(class='form-control' id='stoneworkdescription' rows='3')
+				textarea(class='form-control' id='stoneworkdescription' name='stoneworkdescription' rows='3')
 			div(class='form-group')
 				label(class="control-label" for='streetcategories') Katuluokat
-				input(class='form-control' type='text' id='streetcategories' placeholder='Esim. ar KL3, jk kl6' required)
+				input(class='form-control' type='text' id='streetcategories' name='streetcategories' placeholder='Esim. ar KL3, jk kl6' required)
 			div(class='form-group')
 				label(class="control-label" for='completiongoal') Mahdollisuus aloittaa työt
-				input(class='form-control' type='text' id='completiongoal' required)
+				input(class='form-control' type='text' id='completiongoal' name='completiongoal' required)
 			div(class='form-group')
 				label(class="control-label" for='completiondate') Haluttu valmistumispvm
-				input(class='form-control' type='date' id='completiondate' required)
+				input(class='form-control' type='date' id='completiondate' name='completiondate' required)
+			div(class='form-group')
+				label(class="control-label" for='fileinput') Lisää liite (pdf)
+				input(id='fileinput' type='file' name='attachment' style="display: none;")
+				input(id='fileurl' type='text' name='fileurl' style='display: none;')
+				button(id="fileinput-button" class="glyphicon glyphicon-paperclip" type="button" class="btn" onclick="document.getElementById('fileinput').click();")
+				div(class="filename-container")
 		div(class="text-center order-button-div")
 			button(class="btn btn-info orderbutton" id="order-button-id") TILAA
 include includes/order-confirm-modal.pug

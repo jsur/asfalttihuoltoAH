@@ -15,7 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     completed: DataTypes.BOOLEAN,
     actual_completion_date: DataTypes.DATE,
     billed: DataTypes.BOOLEAN,
-    original_startdate: DataTypes.DATE //Added 28.3.2017
+    original_startdate: DataTypes.DATE, //Added 28.3.2017
+    fileurl: DataTypes.STRING // Added 19.11.2017
   }, {
     classMethods: {
       associate: function(models) {

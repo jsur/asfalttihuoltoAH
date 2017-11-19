@@ -28,7 +28,7 @@ $(function() {
 
   $(".job-additional-info").click(function() {
 
-    var selectedid = $("tbody tr").closest('.selected').attr('id');
+		var selectedid = $("tbody tr").closest('.selected').attr('id');
     getJobAdditionalInfoById(selectedid);
 
   });

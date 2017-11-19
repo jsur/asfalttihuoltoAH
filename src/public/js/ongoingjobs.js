@@ -267,6 +267,8 @@ function getJobAdditionalInfoById(i) {$.ajax({
 				stoneworkflag = 'Ei';
 			}
 
+			const file = data.data.fileurl || undefined;
+
 			$(".job-info-overlay-container")
 				.append('<p>Työn aloituspvm: ' + day2 + mth2 + year2 + '</p>')
 				.append('<p>Työmaan koko: ' + data.data.sitesize + '</p>')
@@ -275,6 +277,11 @@ function getJobAdditionalInfoById(i) {$.ajax({
 				.append('<p>Katuluokat: ' + data.data.streetcategory + '</p>')
 				.append('<p>Mahdollisuus aloittaa työt: ' + data.data.completiongoal + '</p>')
 				.append('<p>Haluttu valmistumispvm: ' + day + '.' + mth + '.' + year + '</p>');
+
+			if(file) {
+				$(".job-info-overlay-container")
+					.append(`<p> <a id="overlay-fileurl" target="_blank" href="${file}">Avaa liite: <span class="glyphicon glyphicon-download"></span> </a> </p>`);
+			}
 			$("#jobInfo").css({"height": "100%"});
 			$("#openbtn").css({"display": "none"});
 			},

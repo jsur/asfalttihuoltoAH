@@ -4,7 +4,6 @@ const express = require('express');
 const router = require('./router.js');
 const parser = require('body-parser');
 const pg = require('pg');
-
 const app = express();
 
 app.set('view engine', 'pug');

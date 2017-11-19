@@ -12,6 +12,14 @@
 	display: none;
 }
 
+#fileinput-button {
+	display: block;
+	font-weight: bold;
+	width: 100px;
+	padding: 1rem;
+	background-color: #5cb85c;
+}
+
 /*Class styles*/
 
 .bootstrap-switch-container {
@@ -38,6 +46,24 @@
 
 .errormsg {
 	color: red;
+}
+
+.msg-container {
+	display: flex;
+	align-items: center;
+}
+
+.flash__text {
+	margin: 0;
+}
+
+.flash__remove {
+  background: none;
+  border: 0;
+  font-size: 20px;
+  font-weight: bold;
+	color: black;
+	margin-left: auto;
 }
 
 /*Media queries*/

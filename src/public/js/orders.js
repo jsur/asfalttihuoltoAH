@@ -1,5 +1,5 @@
 $(function() {
-
+	
 /*Events*/
 
 $("#sitesize").blur(function() {
@@ -48,4 +48,11 @@ $(".orderbutton").click(function() {
 		$(".modal").css("display", "block");
 		}
 	});
+
+const fileinput = document.getElementById('fileinput');
+fileinput.addEventListener('change', function() {
+	$('.filename-container').empty();
+	$('.filename-container').append(`Lisätty: ${fileinput.files[0].name}`);
+});
+
 });
